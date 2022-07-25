@@ -38,9 +38,11 @@ class UserController extends Controller
         User::create([
             'name' =>$request->name,
             'email' => $request->email,
+            
             'address' => $request->address,
             'city'=> $request->city,
-            'pin'=>$request->pin
+            'pin'=>$request->pin,
+            
         ]);
         return response()->json('successfully created');
     }
