@@ -12,14 +12,15 @@ class AuthApiController extends Controller
 {
    
     public function register(Request $request) {
+       
         $validator = Validator::make($request->all(),[
-            'name'=>'required',
+            'name'=>'required|max:191',
             'email'=>'required|email|max:191|unique:users,email',
-            'password'=>'required|min:6|max:20'
+            'password'=>'required|min:6'
         ]);
         if($validator->fails()){
             return response()->json([
-                'validation_error' => $validator->message(),
+                'validation_errors' => $validator->validate(),
             ]);
         }
         else{
