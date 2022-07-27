@@ -21,7 +21,7 @@ use App\Http\Controllers\API\AuthApiController;
 
 Route::resource('users', UserController::class);
 Route::post('users/{id}', function ($id) {
-    
+    return "hello";
 });
 Route::put('login',[AuthController::class,'login']);
 Route::post('register',[AuthApiController::class,'register']);
